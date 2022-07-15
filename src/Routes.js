@@ -3,6 +3,9 @@ import BookData from './components/BookData';
 import Header from "./components/Header";
 import SignIn from './components/SignIn';
 import Home from "./components/Home";
+import SignUp from "./components/SignUp";
+import Footer from "./components/Footer";
+import About from "./components/About";
 const Routes = () => {
 
     return (
@@ -12,9 +15,12 @@ const Routes = () => {
                 <Header />
                 <Switch>
                     <Route path='/signin'> <SignIn/> </Route>
+                    <Route path='/signup'> <SignUp/> </Route>
                     <Route path='/bookdata'> <BookData/> </Route>
                     <Route path='/home'> <Home/> </Route>
+                    <Route path='/about'> <About/> </Route>
                 </Switch>
+                <Footer />
                 </BrowserRouter>
             </div>
         </div>

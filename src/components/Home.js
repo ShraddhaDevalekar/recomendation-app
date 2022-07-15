@@ -1,14 +1,48 @@
+import React from "react";
 const Home = () => {
+
+// return(
+//     <>
+//     <div className="header">
+//         <div className="row1">
+//             <h1>A room without Books is like<br/> a body without soul</h1>
+//         </div>
+//         <div className="row2">
+//             <h2>Find Your Book</h2>
+//             <div className="search">
+//                 <input type="text" placeholder="Enter Your Book Name"/>
+//                 <button><i class ="fas fa-search"></i></button>
+//             </div>
+//             <img src= "books.jpg"alt=""/>
+//         </div>
+//     </div>
+// </>
+// )
+
+
+// }
+
+
+// export default Home;
+
+
+
+
+
+
+
+
+
 
     return (
         <div
             style={{
-                backgroundImage: `url("https://www.incimages.com/uploaded_files/image/1920x1080/getty_655998316_2000149920009280219_363765.jpg")`,
+                backgroundImage: `url("https://www.teahub.io/photos/full/19-195485_library-books.jpg")`,
                 backgroundPosition: `cover`
             }}
         >
-            <div style={{ minHeight: "100vh", textShadow: '2px 2px #f2f2f2' }} className="container">
-                <p className="display-4 text-danger pt-bg-success">Book Recommendation App</p>
+            <div style={{ minHeight: "120vh", textShadow: '2px 2px #f2f2f2' }} className="container">
+                <p className="display-4 text-danger pt-5">Book Recommendation App</p>
               
 
             </div>
@@ -17,3 +51,48 @@ const Home = () => {
 }
 
 export default Home;
+
+
+
+
+// import react ,{useState}from "react";
+// //import Card from "./Card";
+// import axios from "axios";
+// const Home=()=>{
+//     const [search,setSearch]=useState("");
+//     const [bookData,setData]=useState([]);
+//     const searchBook=(evt)=>{
+//         if(evt.key==="Enter")
+//         {
+//             axios.get('https://www.googleapis.com/books/v1/volumes?q='+search+'&key=AIzaSyA6SaT23KNiiA6DnUfUQTvFeyAcQEkwnSU'+'&maxResults=40')
+//             .then(res=>setData(res.data.items))
+//             .catch(err=>console.log(err))
+//         }
+//     }
+//     return(
+//         <>
+//             <div className="header">
+//                 <div className="row1">
+//                     <h1>A room without books is like<br/> a body without a soul.</h1>
+//                 </div>
+//                 <div className="row2">
+//                     <h2>Find Your Book</h2>
+//                     <div className="search">
+//                         <input type="text" placeholder="Enter Your Book Name"
+//                         value={search} onChange={e=>setSearch(e.target.value)}
+//                         onKeyPress={searchBook}/>
+//                         <button><i className="fas fa-search"></i></button>
+//                     </div>
+//                     <img src="./images/bg2.png" alt="" />
+//                 </div>
+//             </div>
+
+//             <div className="container">
+//               {
+//                   //  <Card book={bookData}/>
+//               }  
+//             </div>
+//         </>
+//     )
+// }
+// export default Home;
