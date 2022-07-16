@@ -1,48 +1,106 @@
-// const BookData = () => {
-
-//     return(
-//         <div>
-//             <h1>BookData Component</h1>
-//             <p>Welcome...</p>
-//         </div>
-//     );
-// }
-// export default BookData;
-
 import { useEffect, useState } from "react";
-
+import Author from " ../models/Author ";
+import Book from "../models/Book";
+import { getBookByIdService, getAllBooksService, addBookService } from "../services/BookService";
 const BookData = () => {
 
-    let [book, setBook] = useState({});
-    let [bookDataToDisplay, setBookDataToDisplay] = useState({});
+  const[bookId, setBookId] = useState();
+  const[book, setBook] = useState(new Book());
+  const[bookToBeAdded, setBookToBeAdded] = useState(new Book());
+  const[author,setAuthor] = useState(new Author());
+  const[allBooks,setAllBooks] = useState();
+
+
+
+    // let [book, setBook] = useState({});
+    // let [bookDataToDisplay, setBookDataToDisplay] = useState({});
 
     useEffect(() => {
-        setBook({
-            bookId: '',
-            bookName: '',
-            price: ''
-        });
+        // setBook({
+        //     bookId: '',
+        //     bookName: '',
+        //     price: ''
+        // });
     }, []);
 
     const handleChange = (evt) => {
+        console.log(evt.target.name);
         console.log(evt.target.value);
-        setBook({ ...book, [evt.target.name]: evt.target.value }); 
-        setBookDataToDisplay({
-            bookId: '',
-            bookName: '',
-            price: ''
-        });
+        setBook(evt.target.value ); 
+        // setBookDataToDisplay({
+        //     bookId: '',
+        //     bookName: '',
+        //     price: ''
+        // });
     }
 
-    const submitData = (evt) => {
-        console.log(evt.target.value);
-        setBookDataToDisplay(book); 
-        setBook({
-            bookId: '',
-            bookName: '',
-            price: ''
-        });
+    // const submitData = (evt) => {
+    //     console.log(evt.target.value);
+    //     setBookDataToDisplay(book); 
+    //     setBook({
+    //         bookId: '',
+    //         bookName: '',
+    //         price: ''
+    //     });
+    //     evt.preventDefault(); 
+    // }
+    const submitGetBookById = (evt) => {
+        console.log(bookId);
         evt.preventDefault(); 
+       // axios.get(`http://localhost:9988/user/get-book-by-id/${id}`);
+
+       getBookByIdService(bookId)
+       .then((response) => { 
+        console.log(response.data);
+       } )
+       .catch((error)  => {
+        alert(error);
+        setBook(response.data);
+       })
+
+      
+    const submitGetAllBooks = (evt) => {
+        evt.preventDefault();
+        getAllBooksService()
+            .then((response) => {
+                setAllBooks(response.data);
+                console.log(response.data);
+                console.log(allBooks);
+            })
+            .catch((error) => {
+                alert(error);
+                setAllBooks([]);
+            });
+    }
+    
+    const handleAddBook = (e) => {
+        console.log(e.target.name);
+        console.log(e.target.value);
+        setBookToBeAdded({
+            ...bookToBeAdded,
+            [e.target.name]: e.target.value
+        });
+
+        setAuthor({
+            ...author,
+            [e.target.name]: e.target.value
+        });
+    }
+   
+    
+    const submitAddBook = (evt) => {
+        evt.preventDefault();
+        let bookTemp = { ...bookToBeAdded, author };
+        addBookService(bookTemp)
+            .then((response) => {
+                console.log(response.data);
+                alert(`Book with bookId ${response.data. bookId} added successfully.`);
+            })
+            .catch(() => {
+                setBookToBeAdded(new Book());
+                bookTemp = '';
+                alert("Book could not be added.");
+            });
     }
 
     return (
@@ -113,5 +171,15 @@ const BookData = () => {
         </div>
     );
 }
-
+}
 export default BookData;
+// const BookData = () => {
+
+//     return(
+//         <div>
+//             <h1>BookData Component</h1>
+//             <p>Welcome...</p>
+//         </div>
+//     );
+// }
+// export default BookData;

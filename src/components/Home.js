@@ -37,7 +37,7 @@ const Home = () => {
     return (
         <div
             style={{
-                backgroundImage: `url("https://www.teahub.io/photos/full/19-195485_library-books.jpg")`,
+                backgroundImage: `url("https://img.freepik.com/premium-vector/people-sit-comfy-armchairs-with-book-tablet-laptop-vector-flat-illustration-man-woman-reading-working-public-library-isolated-white-background-shelves-racks-with-books_198278-10718.jpg?w=1060")`,
                 backgroundPosition: `cover`
             }}
         >

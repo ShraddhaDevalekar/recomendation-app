@@ -30,8 +30,11 @@ const SignUp = () => {
     }
 
     return (
+        <div style={{backgroundImage:"url(https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-2650.jpg?w=2000)",backgroundRepeat:"no-repeat", backgroundSize:"contain", 
+        height:900,width:900}}>
         <div className="container" >
             <p className="display-4 text-primary py-3">SignUp</p>
+            </div>
             <hr />
             <div className="col-3 mt-3 py-3 shadow bg-white" >
                 <h1 className="lead text-primary pb-2">SignUp</h1>
