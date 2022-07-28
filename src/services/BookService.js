@@ -2,11 +2,11 @@ import axios from 'axios';
 
 // Create services for other components in this way. 
 
-const springBootAppUrl = `http://localhost:9988/`;
+const springBootAppUrl = `http://localhost:9999/`;
 
-const getBookByIdService = (bookId) => {
+const getBookByIdService = (id) => {
     console.log('getBookByIdService');
-    return axios.get(`${springBootAppUrl}book/get-book-by-id/${bookId}`);
+    return axios.get(`${springBootAppUrl}book/get-book-by-id/${id}`);
 }
 const getAllBooksService = () => {
     console.log(`getAllBooksService`);

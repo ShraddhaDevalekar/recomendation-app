@@ -1,4 +1,4 @@
-import Author from "./Autor";
+import Author from "./Author";
 
 class Book {
 

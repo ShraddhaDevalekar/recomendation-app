@@ -19,7 +19,7 @@ const SignUp = () => {
 
     const submitSignUp = (event) => {
         console.log(appUser);
-         axios.post('http://localhost:9988/user/sign-up', appUser)
+         axios.post('http://localhost:9999/user/sign-up', appUser)
             .then((response) => {
                 alert(`SignUp successful for ${response.data.userName}!`);
             })
@@ -31,7 +31,7 @@ const SignUp = () => {
 
     return (
         <div style={{backgroundImage:"url(https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-2650.jpg?w=2000)",backgroundRepeat:"no-repeat", backgroundSize:"contain", 
-        height:900,width:900}}>
+        height:700,width:900}}>
         <div className="container" >
             <p className="display-4 text-primary py-3">SignUp</p>
             </div>

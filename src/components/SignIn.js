@@ -100,7 +100,7 @@ const SignIn = () => {
 
     const submitAppUser = (event) => {
         console.log(appUser);
-        axios.post('http://localhost:9988/user/sign-in', appUser)
+        axios.post('http://localhost:9999/user/sign-in', appUser)
             .then((response) => {
                 alert(`SignIn successful for ${response.data.userName}!`);
             })
@@ -111,8 +111,8 @@ const SignIn = () => {
     }
 
     return (
-        <div style={{backgroundImage:"url(https://as1.ftcdn.net/v2/jpg/03/37/55/72/1000_F_337557239_61iGh6cSc8db0Abk6SWgDw9YlTy3fyIc.jpg)",backgroundRepeat:"no-repeat", backgroundSize:"cover", 
-        height:600,width:600}}>
+        <div style={{backgroundImage:"url(https://t3.ftcdn.net/jpg/03/15/63/00/240_F_315630073_imLsnbH55tTYicCBXjLC3aT59gggEyVm.jpg)",backgroundRepeat:"no-repeat", backgroundSize:"contain",
+       }}>
         <div className="container" >
             <p className="display-4 text-primary py-3">SignIn</p>
             <hr />
@@ -160,7 +160,7 @@ const SignIn = () => {
                 </form>
             </div>
             <div className="py-3 ">
-                <Link to="/register" className="btn btn-outline-primary col-3">You can also Sign Up</Link>
+                <Link to="/signUp" className="btn btn-outline-primary col-3">You can also Sign Up</Link>
             </div>
         </div >
     )

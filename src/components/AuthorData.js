@@ -1,39 +1,32 @@
 
 import axios from "axios";
 import { useEffect, useState } from "react";
-const BookData = () => {
- let [id, setBookId] = useState('');
- let [bookDataToDisplay, setBookDataToDisplay] = useState('');
+
+const AuthorData = () => {
+ let [id, setAuthorId] = useState('');
+ let [authorDataToDisplay, setAuthorDataToDisplay] = useState('');
 
     const handleChange = (evt) => {
-        setBookId(evt.target.value ); 
-        setBookDataToDisplay({
+        setAuthorId(evt.target.value ); 
+        setAuthorDataToDisplay({
             id: '',
-            name: '',
-            price: '',
-            rating: '',
-            authorId: '',
-            categoryId: ''
+            name: ''
         });
     }
 
-    const getBookById = (evt) => {
+    const getAuthorById = (evt) => {
         console.log(id);
-        axios.get(`http://localhost:9999/user/get-book-by-id/${id}`)
+        axios.get(`http://localhost:9999/user/get-author-by-id/${id}`)
             .then((response) => {
-                setBookDataToDisplay(response.data);
-                setBookId('');
+                setAuthorDataToDisplay(response.data);
+                setAuthorId('');
             })
             .catch(() => {
-                alert(`Book with BookId ${id} not found!`);
-                setBookId('');
-                setBookDataToDisplay({
+                alert(`Author with AuthorId ${id} not found!`);
+                setAuthorId('');
+                setAuthorDataToDisplay({
                    id: '',
-                   name: '',
-                   price: '',
-                   rating: '',
-                   authorId: '',
-                   categoryId: ''
+                   name: ''
                 });
             });
         evt.preventDefault();
@@ -42,12 +35,12 @@ const BookData = () => {
     return (
         <div className="container">
             <div>
-                <p className="display-4 text-primary py-3">BookData</p>
+                <p className="display-4 text-primary py-3">AuthorData</p>
                 <hr />
-                <p className="lead">Search Book by Id</p>
+                <p className="lead">Search Author by Id</p>
                 <div className="row pt-3">
                     <div className="col-3 md-auto px-3 pt-3 bg-white shadow">
-                        <p className="lead text-info">Search Book:</p>
+                        <p className="lead text-info">Search Author:</p>
                         <form className="form form-group">
                             <input
                                 className="form-control mb-3"
@@ -62,20 +55,17 @@ const BookData = () => {
                             <input
                                 className="form-control btn btn-outline-primary"
                                 type="submit"
-                                value="Search Book"
-                                onClick={getBookById}>
+                                value="Search Author"
+                                onClick={getAuthorById}>
                             </input>
                         </form>
                     </div>
                     <div className="col-4 ml-auto mr-auto px-3 py-3 bg-white shadow">
-                        <p className="lead text-info">Book details:</p>
+                        <p className="lead text-info">Author details:</p>
                         <hr />
-                        <p>BookId: {bookDataToDisplay.bookId}</p>
-                        <p>BookName: {bookDataToDisplay.bookName}</p>
-                        <p>Price: {bookDataToDisplay.price}</p>
-                        <p>Rating: {bookDataToDisplay.rating}</p>
-                        <p>AuthorId: {bookDataToDisplay.authorId}</p>
-                        <p>CategoryId: {bookDataToDisplay.categoryId}</p>
+                        <p>AuthorId: {authorDataToDisplay.authorId}</p>
+                        <p>AuthorName: {authorDataToDisplay.authorName}</p>
+                       
                     </div>
                 </div>
             </div>
@@ -83,7 +73,7 @@ const BookData = () => {
     );
 }
 
-export default BookData;
+export default AuthorData;
 
 
 
